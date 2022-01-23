@@ -1,0 +1,9 @@
+sudo: require
+services:
+  - docker
+
+before_install:
+  - docker build -t crax88/docker-test -f Dockerfile.dev .
+
+script:
+  - docker run crax88/docker-test npm run test -- --coverage
